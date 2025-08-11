@@ -130,7 +130,6 @@ This document outlines the list of supported labels categorized for easier refer
 - `social_trend`
 - `celebrity_endorsement`
 
-````
 
 
 ## ⚖️ Validation & Rejection Rules
