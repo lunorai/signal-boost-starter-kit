@@ -71,8 +71,6 @@ title,type,timestamp_utc,source,label,token_id
 
 This document outlines the list of supported labels categorized for easier reference.
 
----
-
 ## 📈 Market & Trading
 
 - `listing`
@@ -134,7 +132,6 @@ This document outlines the list of supported labels categorized for easier refer
 
 ````
 
----
 
 ## ⚖️ Validation & Rejection Rules
 
