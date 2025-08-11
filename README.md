@@ -1,6 +1,6 @@
-# 🧠 SignalBoost Challenge
+# 🧠 SignalBoost Quest by Lunor
 
-Welcome to the official repository for the **SignalBoost Challenge**.
+Welcome to the official repository for the **SignalBoost Quest**, powered by **Lunor**.
 
 ---
 
@@ -29,7 +29,7 @@ Crypto markets move at lightning speed — and often, it’s the right news at t
 
 But not all news is equal.
 
-This quest challenges you to curate **real, verifiable news events** — tweets, articles, announcements — that had an immediate and measurable impact on a specific token’s price.  
+This Lunor Quest challenges you to curate **real, verifiable news events** — tweets, articles, announcements — that had an immediate and measurable impact on a specific token’s price.  
 Think **listings, hacks, funding rounds, or governance changes** that actually moved the market.
 
 Your goal is to help build a **high-signal training dataset** for AI systems that can:
@@ -62,7 +62,8 @@ Submit timestamped news events that:
 **Format:**
 
 ```csv
-title,type,timestamp_utc,source,label,coingecko_id
+title,type,timestamp_utc,source,label,token_id
+```
 
 ---
 
@@ -73,23 +74,27 @@ This document outlines the list of supported labels categorized for easier refer
 ---
 
 ## 📈 Market & Trading
+
 - `listing`
 - `delisting`
 - `trading_pair_change`
 
 ## 🔐 Security & Risk
+
 - `hack`
 - `rugpull`
 - `security_breach`
 - `downtime`
 
 ## 🏛️ Protocol & Governance
+
 - `mainnet_launch`
 - `upgrade`
 - `governance_proposal`
 - `rebrand`
 
 ## 💰 Token Economics
+
 - `token_burn`
 - `token_unlock`
 - `airdrop`
@@ -97,31 +102,37 @@ This document outlines the list of supported labels categorized for easier refer
 - `supply_inflation`
 
 ## 🌐 Ecosystem & Partnerships
+
 - `partnership`
 - `product_launch`
 - `infrastructure_integration`
 - `chain_migration`
 
 ## 💵 Fundraising & Treasury
+
 - `funding_round`
 - `grant_award`
 - `treasury_update`
 
 ## 👥 Team & Legal
+
 - `team_change`
 - `legal_action`
 - `regulatory_news`
 
 ## 🌍 Macro & Industry
+
 - `macro_event`
 - `industry_merger`
 - `infrastructure_outage`
 
 ## 🎭 Community & Culture
+
 - `community_conflict`
 - `social_trend`
 - `celebrity_endorsement`
-```
+
+````
 
 ---
 
@@ -174,14 +185,14 @@ This document outlines the list of supported labels categorized for easier refer
 
 ## 💰 Reward Distribution
 
-Rewards are **linear** based on the total **Signal Score** from valid submissions.  
+Rewards are **linear** based on the total **Signal Score** from valid submissions.
 **Max counted score per participant** = `10,000`
 
 **Formula:**
 
 ```math
 Your Reward = (Your Score ÷ Sum of All Scores) × Total Prize Pool
-```
+````
 
 **Minimum eligibility:** 100 total Signal Score
 
@@ -265,3 +276,11 @@ python coingecko_id_validator.py
 
 Join our Discord for updates, strategy discussions, and help:  
 👉 [discord.gg/6NrZmpPpTY](https://discord.gg/6NrZmpPpTY)
+
+---
+
+<p align="center">
+  <img src="/signal-boost-starter-kit/lunor-full.png" alt="Lunor" width="120"/>
+  <br>
+  <b>SignalBoost Quest is brought to you by Lunor</b>
+</p>
