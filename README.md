@@ -38,7 +38,12 @@ Your goal is to help build a **high-signal training dataset** for AI systems tha
 - Predict market impact with precision
 - Separate signal from noise in the chaotic world of crypto
 
-Submissions must be **timestamped** and tagged with the correct event type and token using its **Coingecko ID**.  
+Submissions must be **timestamped** and tagged with the correct event type and token using its **Coingecko ID**. For example the token id of **doge** in coingeko is **dogecoin**.
+
+<p align="center">
+  <img src="dogecoin.png" alt="Dogecoin" width="120"/>
+</p>
+
 Backend validation will verify listing status, market cap, volatility, and price movement using live on-chain data and exchange feeds via **CCXT**.
 
 **Better news curation = higher Signal Score = bigger rewards.**
@@ -277,7 +282,5 @@ Join our Discord for updates, strategy discussions, and help:
 ---
 
 <p align="center">
-  <img src="/signal-boost-starter-kit/lunor-full.png" alt="Lunor" width="120"/>
-  <br>
-  <b>SignalBoost Quest is brought to you by Lunor</b>
+  For detailed Quest rules, visit <a href="https://app.lunor.quest/challenge/1000037">Lunor Quest</a>.
 </p>
