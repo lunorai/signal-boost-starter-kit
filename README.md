@@ -135,9 +135,6 @@ This document outlines the list of supported labels categorized for easier refer
 - `social_trend`
 - `celebrity_endorsement`
 
-````
-
-
 ## ⚖️ Validation & Rejection Rules
 
 ### ✅ Accepted If:
@@ -194,7 +191,7 @@ Rewards are **linear** based on the total **Signal Score** from valid submission
 
 ```math
 Your Reward = (Your Score ÷ Sum of All Scores) × Total Prize Pool
-````
+```
 
 **Minimum eligibility:** 100 total Signal Score
 
