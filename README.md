@@ -272,11 +272,3 @@ python coingecko_id_validator.py
 
 Join our Discord for updates, strategy discussions, and help:  
 👉 [discord.gg/6NrZmpPpTY](https://discord.gg/6NrZmpPpTY)
-
----
-
-<p align="center">
-  <img src="/signal-boost-starter-kit/lunor-full.png" alt="Lunor" width="120"/>
-  <br>
-  <b>SignalBoost Quest is brought to you by Lunor</b>
-</p>
