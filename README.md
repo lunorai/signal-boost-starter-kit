@@ -63,14 +63,12 @@ Submit timestamped news events that:
 
 ```csv
 title,type,timestamp_utc,source,label,coingecko_id
-
 ```
 
 ## 🏷️ Supported Labels
 
 This document outlines the list of supported labels categorized for easier reference.
 
----
 
 ## 📈 Market & Trading
 - `listing`
@@ -121,9 +119,8 @@ This document outlines the list of supported labels categorized for easier refer
 - `community_conflict`
 - `social_trend`
 - `celebrity_endorsement`
-```
 
----
+
 
 ## ⚖️ Validation & Rejection Rules
 
