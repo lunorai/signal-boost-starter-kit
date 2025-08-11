@@ -1,6 +1,6 @@
-# 🧠 Crypto News Impact Dataset Quest
+# 🧠 SignalBoost Challenge
 
-Welcome to the official repository for the **Crypto News Impact Dataset Challenge**.
+Welcome to the official repository for the **SignalBoost Challenge**.
 
 ---
 
@@ -16,7 +16,10 @@ Welcome to the official repository for the **Crypto News Impact Dataset Challeng
    - [💰 Reward Distribution](#-reward-distribution)
    - [🏆 Private Leaderboard Eligibility](#-private-leaderboard-eligibility)
    - [✅ Submission Checklist](#-submission-checklist)
-7. [💬 Support & Community](#-support--community)
+7. [🚀 Local Submission Validation & CoinGecko ID Check](#-local-submission-validation--coingecko-id-check)
+   - [🔧 How to Run Pre-Check Script](#-how-to-run-pre-check-script)
+   - [🔧 How to Run CoinGecko ID Validator](#-how-to-run-coingecko-id-validator)
+8. [💬 Support & Community](#-support--community)
 
 ---
 
@@ -200,6 +203,61 @@ To appear on the private leaderboard & receive rewards:
 - Not within **2h before listing** (for listing news)
 - Not a **stablecoin**
 - **Market cap** > $30M
+
+---
+
+## 🚀 Local Submission Validation & CoinGecko ID Check
+
+Before submitting your signals, you can validate your CSV locally and check your CoinGecko token IDs.
+
+### 🔧 How to Run Pre-Check Script
+
+This script checks your CSV for formatting, required columns, allowed labels, and timestamp formats.
+
+**Requirements:**
+
+- Python 3.x
+- pandas
+
+**Install dependencies:**
+
+```sh
+pip install pandas
+```
+
+**Run the pre-check script:**
+
+```sh
+python pre-check-submission.py
+```
+
+- By default, it checks `signals.csv` in the same folder.
+- Fix any errors shown before submitting.
+
+### 🔧 How to Run CoinGecko ID Validator
+
+This script verifies that all `token_id` values in your CSV are valid CoinGecko IDs.
+
+**Requirements:**
+
+- Python 3.x
+- pandas
+- requests
+
+**Install dependencies:**
+
+```sh
+pip install pandas requests
+```
+
+**Run the validator:**
+
+```sh
+python coingecko_id_validator.py
+```
+
+- By default, it checks `signals.csv` in the same folder.
+- Review the output to ensure all IDs are supported.
 
 ---
 
