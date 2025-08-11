@@ -64,7 +64,7 @@ Submit timestamped news events that:
 ```csv
 title,type,timestamp_utc,source,label,coingecko_id
 
----
+```
 
 ## 🏷️ Supported Labels
 
