@@ -70,6 +70,8 @@ Submit timestamped news events that:
 title,type,timestamp_utc,source,label,token_id
 ```
 
+**Submission Limit:** Maximum 50 rows per submission for faster evaluation.
+
 ---
 
 ## 🏷️ Supported Labels
@@ -241,7 +243,7 @@ pip install pandas
 python pre-check-submission.py
 ```
 
-- By default, it checks `signals.csv` in the same folder.
+- By default, it checks `news.csv` in the same folder.
 - Fix any errors shown before submitting.
 
 ### 🔧 How to Run CoinGecko ID Validator
@@ -266,7 +268,7 @@ pip install pandas requests
 python coingecko_id_validator.py
 ```
 
-- By default, it checks `signals.csv` in the same folder.
+- By default, it checks `news.csv` in the same folder.
 - Review the output to ensure all IDs are supported.
 
 ---

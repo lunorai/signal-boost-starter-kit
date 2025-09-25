@@ -10,6 +10,7 @@ It ensures:
     4. Only ONE label per row (no commas)
     5. Label is in the allowed list (see list below)
     6. Timestamps are in correct UTC format (YYYY-MM-DDTHH:MM:SSZ)
+    7. Maximum 50 rows per submission (for faster evaluation)
 
 ------------------------------------
 INSTALLATION:
@@ -71,7 +72,7 @@ from datetime import datetime
 # ------------------------------------
 # Default: looks for file in same folder as script
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-CSV_FILE = os.path.join(SCRIPT_DIR, "signals.csv")  # Change if needed
+CSV_FILE = os.path.join(SCRIPT_DIR, "news.csv")  # Change if needed
 
 # Hardcoded allowed labels
 ALLOWED_LABELS = [
@@ -104,6 +105,10 @@ def validate_csv(file_path):
     # 1. Check if CSV has data rows
     if len(df) == 0:
         errors.append("❌ CSV file has no data rows (only headers). Please add your signal data.")
+
+    # Check row limit (max 50 rows for faster evaluation)
+    if len(df) > 50:
+        errors.append(f"❌ CSV file contains {len(df)} rows, which exceeds the maximum limit of 50 rows.")
 
     # 2. Check columns (order doesn't matter)
     expected_set = set(EXPECTED_COLUMNS)

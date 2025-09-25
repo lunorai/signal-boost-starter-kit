@@ -16,7 +16,7 @@ import pandas as pd
 import requests
 
 # === User Config ===
-CSV_FILENAME = "signals.csv"  # Change to your CSV filename
+CSV_FILENAME = "news.csv"  # Change to your CSV filename
 COINGECKO_API = "https://api.coingecko.com/api/v3/coins/"
 TIMEOUT = 10  # seconds
 
