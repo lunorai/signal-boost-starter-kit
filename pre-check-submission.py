@@ -10,6 +10,7 @@ It ensures:
     4. Only ONE label per row (no commas)
     5. Label is in the allowed list (see list below)
     6. Timestamps are in correct UTC format (YYYY-MM-DDTHH:MM:SSZ)
+    7. Maximum 30 rows per submission
 
 ------------------------------------
 INSTALLATION:
@@ -31,6 +32,7 @@ CSV FORMAT:
     Timestamp format: 2024-01-15T10:30:00Z (ISO 8601 with Z suffix)
     Token ID format: Use CoinGecko token ID (e.g., "bitcoin", "ethereum", "pepe")
     Source format: Must be a valid HTTP/HTTPS URL
+    Maximum rows: 30 (excluding header row)
 
 ------------------------------------
 ALLOWED LABELS:
@@ -90,12 +92,14 @@ EXPECTED_COLUMNS = [
     "title", "type", "timestamp_utc", "token_id", "source", "label"
 ]
 
+MAX_ROWS = 30  # Maximum number of data rows allowed per submission
+
 # ------------------------------------
 # VALIDATION LOGIC
 # ------------------------------------
 def validate_csv(file_path):
     errors = []
-    
+
     try:
         df = pd.read_csv(file_path, dtype=str)
     except Exception as e:
@@ -105,7 +109,11 @@ def validate_csv(file_path):
     if len(df) == 0:
         errors.append("❌ CSV file has no data rows (only headers). Please add your signal data.")
 
-    # 2. Check columns (order doesn't matter)
+    # 2. Check maximum row count
+    if len(df) > MAX_ROWS:
+        errors.append(f"❌ CSV file contains {len(df)} rows, which exceeds the maximum limit of {MAX_ROWS} rows.")
+
+    # 3. Check columns (order doesn't matter)
     expected_set = set(EXPECTED_COLUMNS)
     found_set = set(df.columns)
     
@@ -120,27 +128,26 @@ def validate_csv(file_path):
         if extra:
             errors.append(f"   Extra:    {list(extra)}")
 
-    # 3. Check for empty cells
+    # 4. Check for empty cells
     if df.isnull().values.any() or (df == "").values.any():
         errors.append("❌ Found empty cells — all fields must be populated.")
 
-    # 4. Check column count per row
-    with open(file_path, "r", encoding="utf-8") as f:
-        for i, line in enumerate(f, start=1):
-            if len(line.strip().split(",")) != len(EXPECTED_COLUMNS):
-                errors.append(f"❌ Row {i} does not have exactly {len(EXPECTED_COLUMNS)} columns.")
+    # 5. Check that each row has correct number of columns
+    # Note: pandas already handles this properly when reading CSV with quotes
+    if len(df.columns) != len(EXPECTED_COLUMNS):
+        errors.append(f"❌ CSV structure error: found {len(df.columns)} columns instead of {len(EXPECTED_COLUMNS)}.")
 
-    # 5. Check single label only (no commas)
+    # 6. Check single label only (no commas)
     for idx, label in enumerate(df["label"], start=2):  # header = row 1
         if "," in label:
             errors.append(f"❌ Row {idx} has multiple labels: '{label}'")
 
-    # 6. Check label is in allowed list
+    # 7. Check label is in allowed list
     for idx, label in enumerate(df["label"], start=2):
         if label not in ALLOWED_LABELS:
             errors.append(f"❌ Row {idx} has invalid label: '{label}'")
 
-    # 7. Check timestamp format
+    # 8. Check timestamp format
     for idx, ts in enumerate(df["timestamp_utc"], start=2):
         try:
             # Check for ISO format with T and Z (e.g., "2024-01-15T10:30:00Z")
@@ -154,6 +161,13 @@ def validate_csv(file_path):
 # MAIN EXECUTION
 # ------------------------------------
 if __name__ == "__main__":
+    import sys
+    # Set UTF-8 encoding for console output (handles emojis across all platforms)
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except (AttributeError, OSError):
+        pass  # reconfigure() not available or fails, continue anyway
+
     print(f"🔍 Validating file: {CSV_FILE}")
     results = validate_csv(CSV_FILE)
 

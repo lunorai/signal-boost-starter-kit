@@ -70,6 +70,8 @@ Submit timestamped news events that:
 title,type,timestamp_utc,source,label,token_id
 ```
 
+**Submission Limit:** Maximum 30 rows per submission for faster evaluation.
+
 ---
 
 ## 🏷️ Supported Labels
