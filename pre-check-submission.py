@@ -73,7 +73,7 @@ from datetime import datetime
 # ------------------------------------
 # Default: looks for file in same folder as script
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-CSV_FILE = os.path.join(SCRIPT_DIR, "signals.csv")  # Change if needed
+CSV_FILE = os.path.join(SCRIPT_DIR, "news.csv")  # Change if needed
 
 # Hardcoded allowed labels
 ALLOWED_LABELS = [
